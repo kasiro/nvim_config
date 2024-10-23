@@ -68,20 +68,6 @@ end
 -- Создаем пользовательскую команду ':Tyig'
 vim.api.nvim_create_user_command('Tyig', add_type_ignore, {})
 
--- Запуск ruff server при старте Neovim
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.fn.jobstart("ruff server", { detach = true })
-  end,
-})
-
--- Остановка ruff server при выходе из Neovim
-vim.api.nvim_create_autocmd("VimLeave", {
-  callback = function()
-    vim.fn.system("pkill -f 'ruff server'")
-  end,
-})
-
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
     pattern = "*.ts",
     command = [[ !tsc %]]

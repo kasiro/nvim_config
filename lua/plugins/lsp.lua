@@ -5,12 +5,12 @@ lspconfig.pyright.setup {
     settings = {
 	    pyright = {
 	      -- Using Ruff's import organizer
-	      disableOrganizeImports = true,
+	      -- disableOrganizeImports = true,
 	    },
 	    python = {
 	      analysis = {
 	        -- Ignore all files for analysis to exclusively use Ruff for linting
-	        ignore = { '*' },
+	        -- ignore = { '*' },
 	      },
 		},
 	},	
@@ -30,19 +30,19 @@ lspconfig.rust_analyzer.setup {
 }
 
 -- Setup Ruff Linter
-lspconfig.ruff.setup {
-  init_options = {
-    settings = {
-      -- Any extra CLI arguments for `ruff` go here.
-      args = {
-		"--select=E,F,UP,N,I,ASYNC,S,PTH",
-		"--line-length=79",
-		"--respect-gitignore",  -- Исключать из сканирования файлы в .gitignore
-      	"--target-version=py311"
-      },
-    }
-  }
-}
+-- lspconfig.ruff.setup {
+--   init_options = {
+--     settings = {
+--       -- Any extra CLI arguments for `ruff` go here.
+--       args = {
+-- 		"--select=E,F,UP,N,I,ASYNC,S,PTH",
+-- 		"--line-length=79",
+-- 		"--respect-gitignore",  -- Исключать из сканирования файлы в .gitignore
+--       	"--target-version=py311"
+--       },
+--     }
+--   }
+-- }
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
