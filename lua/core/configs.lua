@@ -68,10 +68,10 @@ end
 -- Создаем пользовательскую команду ':Tyig'
 vim.api.nvim_create_user_command('Tyig', add_type_ignore, {})
 
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-    pattern = "*.ts",
-    command = [[ !tsc %]]
-})
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--     pattern = "*.ts",
+--     command = [[ !tsc %]]
+-- })
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   pattern = "*.dy",
