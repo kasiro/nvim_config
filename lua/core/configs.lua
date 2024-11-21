@@ -60,8 +60,9 @@ vim.opt.smarttab = true                -- Tab перед строкой вста
 
 -- Функция для добавления '# type: ignore' в конец текущей строки
 local function add_type_ignore()
+  local lang = 'py'
   local line = vim.api.nvim_get_current_line()
-  local new_line = line .. " # type: ignore"
+  local new_line = line .. ' # type: ignore'
   vim.api.nvim_set_current_line(new_line)
 end
 
