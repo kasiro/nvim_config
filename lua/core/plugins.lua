@@ -15,7 +15,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	
 	{ 'nvim-treesitter/nvim-treesitter' },
-	{ 'neovim/nvim-lspconfig' },
+	{
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            "williamboman/mason.nvim",
+        },
+    },
+
+    { "mattn/emmet-vim" },
 
 	-- Autocomplete support
 	{ 'hrsh7th/cmp-nvim-lsp' },
@@ -24,7 +31,7 @@ require("lazy").setup({
 	{ 'hrsh7th/cmp-cmdline' },
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'williamboman/mason.nvim' },
-
+    
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.6',
 		dependencies = { 'nvim-lua/plenary.nvim' }
@@ -140,7 +147,7 @@ require("lazy").setup({
 	  event = "VeryLazy",
 	  init = function()
 	    vim.o.timeout = true
-	    vim.o.timeoutlen = 50
+	    vim.o.timeoutlen = 100
 	  end,
 	  opts = {
 	    -- your configuration comes here

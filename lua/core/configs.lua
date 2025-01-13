@@ -20,6 +20,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+-- emmet
+vim.g.user_emmet_leader_key = '<A-n>'
+
 -- Scroll
 vim.opt.so = 30                       -- При скролле курсор всегда по центру
 
