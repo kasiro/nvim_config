@@ -20,6 +20,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+-- emmet
+vim.g.user_emmet_leader_key = '<A-n>'
+
 -- Scroll
 vim.opt.so = 30                       -- При скролле курсор всегда по центру
 
@@ -60,32 +63,19 @@ vim.opt.smarttab = true                -- Tab перед строкой вста
 
 -- Функция для добавления '# type: ignore' в конец текущей строки
 local function add_type_ignore()
+  local lang = 'py'
   local line = vim.api.nvim_get_current_line()
-  local new_line = line .. " # type: ignore"
+  local new_line = line .. ' # type: ignore'
   vim.api.nvim_set_current_line(new_line)
 end
 
 -- Создаем пользовательскую команду ':Tyig'
 vim.api.nvim_create_user_command('Tyig', add_type_ignore, {})
 
--- Запуск ruff server при старте Neovim
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.fn.jobstart("ruff server", { detach = true })
-  end,
-})
-
--- Остановка ruff server при выходе из Neovim
-vim.api.nvim_create_autocmd("VimLeave", {
-  callback = function()
-    vim.fn.system("pkill -f 'ruff server'")
-  end,
-})
-
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-    pattern = "*.ts",
-    command = [[ !tsc %]]
-})
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--     pattern = "*.ts",
+--     command = [[ !tsc %]]
+-- })
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   pattern = "*.dy",
