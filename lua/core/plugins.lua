@@ -22,8 +22,6 @@ require("lazy").setup({
         },
     },
 
-    { "mattn/emmet-vim" },
-
 	-- Autocomplete support
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/cmp-buffer' },
