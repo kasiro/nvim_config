@@ -27,13 +27,27 @@ require("lazy").setup({
 	{ 'hrsh7th/cmp-buffer' },
 	{ 'hrsh7th/cmp-path' },
 	{ 'hrsh7th/cmp-cmdline' },
-	{ 'hrsh7th/nvim-cmp' },
+	{ 
+        'hrsh7th/nvim-cmp',
+        dependencies = { 'saadparwaiz1/cmp_luasnip' }    
+    },
 	{ 'williamboman/mason.nvim' },
     
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.6',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
+
+    {
+      "olrtg/nvim-emmet",
+      config = function()
+        vim.keymap.set(
+            { "n", "v" },
+            '<leader>m',
+            require('nvim-emmet').wrap_with_abbreviation
+        )
+      end,
+    },
 
 	{
 	  'nvimdev/dashboard-nvim',

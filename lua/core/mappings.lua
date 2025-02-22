@@ -21,7 +21,7 @@ vim.keymap.set('n', '<leader>h',':Tyig<CR>')
 -- BufferLine
 vim.keymap.set('n','<Tab>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n','<leader><Tab>', ':BufferLineCyclePrev<CR>')
-vim.keymap.set('n', '<C-H>', ':BufferLineCloseOthers<CR>')
+-- vim.keymap.set('n', '<C-H>', ':BufferLineCloseOthers<CR>')
 -- Закрытие текущего буфер
 vim.keymap.set('n', '<leader><Esc>', ':bd<CR>')
 -- подвинуть в право влево вкладку
