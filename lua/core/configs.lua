@@ -58,6 +58,11 @@ vim.opt.smartindent = true             -- Копировать отступ на
 vim.opt.cindent = true                 -- Автоотступы
 vim.opt.smarttab = true                -- Tab перед строкой вставит shiftwidht количество табов
 
+-- providers
+vim.g.loaded_node_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 -- Функция для добавления ' # type: ignore' в конец текущей строки
 local function add_type_ignore()
   local lang = 'py'

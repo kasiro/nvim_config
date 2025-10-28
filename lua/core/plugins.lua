@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    rocks = { enabled = false },
 	
 	{ 'nvim-treesitter/nvim-treesitter' },
 	{
@@ -129,14 +130,6 @@ require("lazy").setup({
 	},
 
 	{ 'RRethy/vim-illuminate' },
-
-	{
-	    "vhyrro/luarocks.nvim",
-	    priority = 1001, -- this plugin needs to run before anything else
-	    opts = {
-	        rocks = { "magick" },
-	    },
-	},
 
 	{
 	 "folke/trouble.nvim",
