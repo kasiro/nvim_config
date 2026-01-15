@@ -1,20 +1,6 @@
 
 -- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {
-    settings = {
-	    pyright = {
-	      -- Using Ruff's import organizer
-	      -- disableOrganizeImports = true,
-	    },
-	    python = {
-	      analysis = {
-	        -- Ignore all files for analysis to exclusively use Ruff for linting
-	        -- ignore = { '*' },
-	      },
-		},
-	},	
-}
+
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -79,18 +65,7 @@ lspconfig.pyright.setup {
 --   },
 -- })
 
-lspconfig.ts_ls.setup({
-    filetypes = {"typescript"},
-    cmd = { "typescript-language-server", "--stdio" }
-})
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['rust-analyzer'] = {
-        
-    },
-  },
-}
+
 
 -- Setup Ruff Linter
 -- lspconfig.ruff.setup {
@@ -146,3 +121,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
+

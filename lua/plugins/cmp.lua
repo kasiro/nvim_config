@@ -38,7 +38,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         {name = 'nvim_lsp'},
-        {name = 'vsnip'}, -- For vsnip users.
+        {name = 'luasnip'}, -- For vsnip users.
         {name = "path"}
     }, {
         {name = 'buffer'},
@@ -65,9 +65,4 @@ cmp.setup.cmdline(':', {
     sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
 })
 
--- Set up lspconfig.
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-lspconfig['ts_ls'].setup({
-    capabilities = capabilities
-})
+

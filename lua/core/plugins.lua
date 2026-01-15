@@ -14,13 +14,36 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	
-	{ 'nvim-treesitter/nvim-treesitter' },
 	{
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            "williamboman/mason.nvim",
-        },
-    },
+		'nvim-treesitter/nvim-treesitter',
+		opts = {
+			ensure_installed = {
+				"bash",
+				"css",
+				"dockerfile",
+				"html",
+				"javascript",
+				"json",
+				"json5",
+				"lua",
+				"python",
+				"vim",
+				"yaml",
+				"c",
+				"go",
+				"rust",
+			},
+
+			sync_install = false,
+			auto_install = true,
+			highlight = {
+				enable = true,
+			},
+		},
+	},
+	{ 'neovim/nvim-lspconfig' },
+	{ 'williamboman/mason.nvim' },
+	{ 'williamboman/mason-lspconfig.nvim' },
 
 	-- Autocomplete support
 	{ 'hrsh7th/cmp-nvim-lsp' },
@@ -28,7 +51,8 @@ require("lazy").setup({
 	{ 'hrsh7th/cmp-path' },
 	{ 'hrsh7th/cmp-cmdline' },
 	{ 'hrsh7th/nvim-cmp' },
-	{ 'williamboman/mason.nvim' },
+	{ 'L3MON4D3/LuaSnip' },
+	{ 'saadparwaiz1/cmp_luasnip' },
     
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.6',
@@ -109,7 +133,6 @@ require("lazy").setup({
 	
 	        g.ale_linters = {
 	        	python = {'mypy'},
-	            lua = {'lua_language_server'}
 	        }
 	    end
 	},

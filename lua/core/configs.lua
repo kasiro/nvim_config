@@ -79,6 +79,11 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   command = "set filetype=python",
 })
 
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.py",
+  command = "set filetype=python",
+})
+
 -- Fillchars
 vim.opt.fillchars = {
     vert = "│",
