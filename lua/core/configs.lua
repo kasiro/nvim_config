@@ -98,3 +98,11 @@ vim.opt.fillchars = {
 
 vim.cmd([[highlight clear LineNr]])
 vim.cmd([[highlight clear SignColumn]])
+
+-- LSP настройка для Nix (nixd)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'nix',
+  callback = function()
+    vim.lsp.start({ name = 'nixd', cmd = { 'nixd' } })
+  end,
+})
