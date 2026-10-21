@@ -8,7 +8,7 @@ vim.opt.wrap = false
 vim.wo.linebreak = true
 vim.opt.virtualedit = "block"
 vim.opt.undofile = true
-vim.opt.shell = "/run/current-system/sw/bin/bash" -- Shell по умолчанию
+vim.opt.shell = "/run/current-system/sw/bin/fish" -- Shell по умолчанию
 vim.opt.swapfile = false                          -- Отключить swap файлы nvim
 vim.opt.encoding = "utf-8"                        -- Кодировка utf-8
 vim.opt.cursorline = true                         -- Выделять активную строку где находится курсор
@@ -73,15 +73,15 @@ vim.api.nvim_create_user_command('Tyig', add_type_ignore, {})
 --     command = [[ !tsc %]]
 -- })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "*.dy",
-    command = "set filetype=python",
-})
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--     pattern = "*.dy",
+--     command = "set filetype=python",
+-- })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "*.py",
-    command = "set filetype=python",
-})
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--     pattern = "*.py",
+--     command = "set filetype=python",
+-- })
 
 -- Fillchars
 vim.opt.fillchars = {
@@ -101,5 +101,10 @@ vim.cmd([[highlight clear SignColumn]])
 -- LSP настройка для Nix (nixd)
 vim.api.nvim_create_autocmd('FileType', {
     pattern = 'nix',
-    command = "set filetype=nix",
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.expandtab = true
+    end,
 })
